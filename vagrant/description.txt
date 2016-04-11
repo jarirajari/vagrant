@@ -1,0 +1,18 @@
+System = Platform + Application
+
+Phases:
+1. Create VM
+2. VM OS gets installed and then a script updates it
+3. Install and configure platform (independent)
+4. Install and configure application (specific)
+5. Run system: start services and other processes...
+
+Finally, just "vagrant ssh".
+
+Note! Here Application means application specific 
+software etc. not the deployable application itself!
+For example, it is possible to install a database as a 
+part of "platform" but then run some database init-
+ialization scripts at "application" phase: e.g. 
+create database, create users, grant rights to the 
+users, create tables and populate them...

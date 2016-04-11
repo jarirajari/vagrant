@@ -1,0 +1,5 @@
+Do not download source code here!
+
+This directory is reserved for application resources that
+are not packaged into the deployment package, e.g. EAR.
+

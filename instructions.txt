@@ -1,0 +1,25 @@
+Host OS:
+========
+1. Virtualbox
+2. Vagrant
+
++  IDE with checked out source code
+
+Guest OS:
+=========
+
+jenkins:
+http://localhost:8081/
+
+git:
+git clone http://localhost:8082/git/repos/repo.git
+
+wildfly:
+http://localhost:8080/
+http://localhost:9990/
+
+environment:
+JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+M2_HOME=/usr/share/maven
+MAVEN_HOME=/usr/share/maven
+

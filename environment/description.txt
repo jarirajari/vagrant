@@ -1,0 +1,12 @@
+{
+ "env": [
+  "lo": "local",
+  "re": "remote",
+  "ci": "continuousintegration",
+  "int": "integration",
+  "tqa": "test-qualityassurance",
+  "uat": "useracceptancetest",
+  "prep": "preproduction",
+  "prod": "production"
+ ]
+}
