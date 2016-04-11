@@ -1,0 +1,4 @@
+connect
+module add --name=org.postgres --resources=/vagrant/configurations/shared/libs/public/postgresql/postgresql-9.4.1208.jar --dependencies=javax.api,javax.transaction.api
+:reload
+

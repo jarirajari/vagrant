@@ -23,3 +23,11 @@ JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 M2_HOME=/usr/share/maven
 MAVEN_HOME=/usr/share/maven
 
+Deployment of the "test-javaee" web application:
+
+mvn wildfly:deploy
+mvn wildfly:redeploy
+mvn wildfly:undeploy
+
+To test: http://localhost:8080/javaee-programmer/?username=Kent
+

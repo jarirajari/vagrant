@@ -24,10 +24,11 @@ Vagrant.configure(2) do |config|
   
   ## Share an additional folder to the guest VM
   config.vm.synced_folder "../environment", "/vagrant/configurations/environment"
-
+  config.vm.synced_folder "../shared", "/vagrant/configurations/shared"
+  
   ## Shell provisioning
-  config.vm.provision "shell", path: "provisioner/shell/update-guest-os.sh"
-  config.vm.provision "shell", path: "provisioner/shell/install-platform.sh"
+  #config.vm.provision "shell", path: "provisioner/shell/update-guest-os.sh"
+  #config.vm.provision "shell", path: "provisioner/shell/install-platform.sh"
   #config.vm.provision "shell", path: "provisioner/shell/install-application.sh"
   #config.vm.provision "shell", path: "provisioner/shell/run-system.sh"
   
