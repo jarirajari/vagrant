@@ -45,7 +45,7 @@ mkdir -p $WILDFLY_LOG
 sudo ln -s "$WILDFLY_INSTALL_DIR/$WILDFLY_EXTRACT" "$WILDFLY_HOME"
 sudo chown ${WILDFLY_SYSTEM_USER}:${WILDFLY_SYSTEM_USER} ${WILDFLY_HOME}
 sudo chown -R ${WILDFLY_SYSTEM_USER}:${WILDFLY_SYSTEM_USER} ${WILDFLY_INSTALL_DIR}
-sydo chown -R ${WILDFLY_SYSTEM_USER}:${WILDFLY_SYSTEM_USER} ${WILDFLY_LOG}
+sudo chown -R ${WILDFLY_SYSTEM_USER}:${WILDFLY_SYSTEM_USER} ${WILDFLY_LOG}
 
 cp /vagrant/configurations/environment/lo/platform/wildfly/scripts/wildfly-init-debian.sh /etc/init.d/$WILDFLY_SERVICE
 cp /vagrant/configurations/environment/lo/platform/wildfly/confs/wildfly.conf /etc/default/wildfly
