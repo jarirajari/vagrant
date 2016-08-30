@@ -16,3 +16,6 @@ doc/
 
 # Java test
 /target
+
+# After installation
+vagrant/git
