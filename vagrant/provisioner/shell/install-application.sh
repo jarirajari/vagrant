@@ -28,7 +28,10 @@ print_db_usage () {
   echo "  DATABASE_URL=postgresql://$APP_DB_USERNAME:$APP_DB_PASSWORD@localhost:15432/$APP_DB_NAME"
   echo ""
   echo "Local command to access the database via psql:"
-  echo "  PGUSER=$APP_DB_USERNAME PGPASSWORD=$APP_DB_PASSWORD psql -h localhost -p 15432 $APP_DB_NAME"
+  echo "  PGUSER=$APP_DB_USERNAME PGPASSWORD=$APP_DB_PASSWORD psql -h localhost -p 5432 $APP_DB_NAME"
+  echo ""
+  echo "Test:"
+  echo "  psql -d applicationDB -h localhost -U wfdb -p 5432"
 }
 
 service postgresql restart
@@ -39,8 +42,8 @@ CREATE USER $APP_DB_USERNAME WITH PASSWORD '$APP_DB_PASSWORD';
 
 -- Create the database:
 CREATE DATABASE $APP_DB_NAME WITH OWNER=$APP_DB_USERNAME 
-                                  LC_COLLATE='en_US.utf8'
-                                  LC_CTYPE='en_US.utf8'
+                                  LC_COLLATE='en_US.UTF-8'
+                                  LC_CTYPE='en_US.UTF-8'
                                   ENCODING='UTF8'
                                   TEMPLATE=template0;
 EOF

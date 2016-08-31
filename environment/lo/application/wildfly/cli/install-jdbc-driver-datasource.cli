@@ -1,3 +1,3 @@
 connect
-/subsystem=datasources/data-source="applicationDS":add(jndi-name=java:jboss/datasources/applicationDS, use-java-context=true, spy=false, min-pool-size=1, max-pool-size=10, driver-name=postgres, user-name=wfdb, password=wildfly, connection-url=jdbc:postgresql://localhost/applicationDB)
+/subsystem=datasources/data-source="applicationds":add(jndi-name=java:jboss/datasources/applicationds, min-pool-size=1, max-pool-size=10, enabled=true, driver-name=postgres, user-name=wfdb, password=wildfly, connection-url=jdbc:postgresql://localhost:5432/applicationdb)
 :reload
