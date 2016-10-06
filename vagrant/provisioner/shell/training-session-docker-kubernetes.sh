@@ -47,11 +47,6 @@ docker --version
 docker-machine --version
 docker-compose --version
 
-#sudo docker-machine create -d virtualbox slave
-#sudo eval $(docker-machine env slave)
-#sudo docker run hello-world
-#sudo docker-machine rm -f slave
-
 #-------------------------- Python-pre-requirements initialize
 # Python version is already 2.7.6, Python dev libs and pip
 sudo apt-get -y install python-dev
@@ -92,3 +87,35 @@ cd ..
 # Deactivate
 deactivate
 echo "Pre-requirements installed..."
+
+cat > dm_help.txt <<EOF
+
+
+
+***
+* From http://blog.scottlowe.org/2015/08/04/using-vagrant-docker-machine-together/ Check slave IP address
+* 
+* docker-machine create -d generic \
+* --generic-ssh-user vagrant \
+* --generic-ssh-key <path to key: /vagrant/configurations/shared/ssh/insecure_private_key> \
+* --generic-ip-address <IP address of VM> \
+* <vm-name>
+* 
+* To connect your local Docker client to this newly-provisioned Docker Engine, run eval "$(docker-machine env <vm-name>)"
+* From here, you can use all the standard Docker commands to pull images, launch containers, etc., using the local Docker client.
+* Check result with "docker-machine ls". If you need to access a shell within the VM, you can use "docker-machine ssh <vm-name>"
+*
+* When you’re finished with the environment, or if you need to rebuild the environment for whatever reason, 
+* run "docker-machine rm <vm-name>" to remove the VM from Docker Machine’s list of available Docker Engines
+* 
+* From instructions:
+* #docker-machine create -d virtualbox slave
+* #eval $(docker-machine env slave)
+* #docker run hello-world
+* #docker-machine rm -f slave
+***
+
+
+
+EOF
+cat dm_help.txt

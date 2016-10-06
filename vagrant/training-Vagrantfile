@@ -1,0 +1,43 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# Vagrant configuration. Last update Jari, 2016-10-06.
+# The "2" in Vagrant.configure configures the configuration version, please don't change it!
+Vagrant.configure(2) do |config|
+
+  ## Slave for the 'docker-machine'
+  config.vm.define "training-master" do |master|
+    master.vm.box = "ubuntu/trusty64"
+    master.vm.hostname = "training-master"
+    master.vm.provider "virtualbox" do |vbm|
+      ## Display the VirtualBox GUI when booting the machine
+      #vbm.gui = true
+      vbm.memory = 512
+      vbm.cpus = 1
+      vbm.name = "training-master"
+    end
+    ## Network
+    master.vm.network "forwarded_port", guest: 8080, host: 8080  
+    ## Share an additional folder to the guest VM
+    master.vm.synced_folder "../environment", "/vagrant/configurations/environment"
+    master.vm.synced_folder "../shared", "/vagrant/configurations/shared"
+    ## Shell provisioning
+    master.vm.provision "shell", path: "provisioner/shell/training-session-docker-kubernetes.sh"
+  end
+  
+  ## Slave for the 'docker-machine'
+  config.vm.define "training-slave" do |slave|
+    slave.vm.network "private_network", type: "dhcp"
+    slave.vm.box = "ubuntu/trusty64"
+    slave.vm.hostname = "training-slave"
+    slave.vm.provider "virtualbox" do |vbs|
+      vbs.memory = 512
+      vbs.cpus = 1
+      vbs.name = "training-slave"
+    end
+	# Important but makes setup insecure!
+	# https://github.com/mitchellh/vagrant/tree/master/keys
+	config.ssh.insert_key = false
+	## Provisioning "vagrant up --no-provision training-slave"
+  end
+end

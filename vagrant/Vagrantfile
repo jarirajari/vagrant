@@ -1,7 +1,7 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-# Vagrant configuration. Last update Jari, 2016-04-01.
+# Vagrant configuration. Last update Jari, 2016-10-06.
 # The "2" in Vagrant.configure configures the configuration version, please don't change it!
 Vagrant.configure(2) do |config|
 
@@ -28,8 +28,8 @@ Vagrant.configure(2) do |config|
   
   ## Shell provisioning
   #config.vm.provision "shell", path: "provisioner/shell/update-guest-os.sh"
-  #config.vm.provision "shell", path: "provisioner/shell/install-platform.sh"
-  #config.vm.provision "shell", path: "provisioner/shell/install-application.sh"
+  config.vm.provision "shell", path: "provisioner/shell/install-platform.sh"
+  config.vm.provision "shell", path: "provisioner/shell/install-application.sh"
   #config.vm.provision "shell", path: "provisioner/shell/run-system.sh"
-  config.vm.provision "shell", path: "provisioner/shell/training-session-docker-kubernetes.sh"
+  #config.vm.provision "shell", path: "provisioner/shell/training-session-docker-kubernetes.sh"
 end
